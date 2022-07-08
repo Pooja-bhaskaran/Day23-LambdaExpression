@@ -4,8 +4,7 @@ import java.util.regex.Pattern;
 
 @FunctionalInterface
 interface UserRegistration {
-    void firstname(String name); // single abstract method
-
+    void lastname(String name); // single abstract method
 }
 
 public class LambdaExpression{
@@ -19,7 +18,7 @@ public class LambdaExpression{
             else
                 System.out.println("Firstname is not valid ,Please enter valid name");
         };
-        function.firstname("Pooja");
+        function.lastname("Bhaskaran");
     }
 }
 
