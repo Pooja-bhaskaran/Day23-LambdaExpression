@@ -4,21 +4,21 @@ import java.util.regex.Pattern;
 
 @FunctionalInterface
 interface UserRegistration {
-    void lastname(String name); // single abstract method
+    void email(String emailId); // single abstract method
 }
 
 public class LambdaExpression{
     public static void main(String[] args) {
         System.out.println("User Registration program using LambdaExpression");
-        UserRegistration function =(name)->{
-            boolean check = Pattern.matches("([A-Z]{1}[a-z]{1,})", name);
+        UserRegistration function =(emailID)->{
+            boolean check = Pattern.matches("([A-Z a-z 0-9]+([.][A-Za-z0-9]+)@([a-z]+[.][a-z]{2,3})+([.][a-z]+))", emailID);
             if (check == true){
-                System.out.println("Firstname is valid");
+                System.out.println("emailId is valid");
             }
             else
-                System.out.println("Firstname is not valid ,Please enter valid name");
+                System.out.println("emailId is not valid ,Please enter valid email");
         };
-        function.lastname("Bhaskaran");
+        function.email("abc.xyz@bl.com.in");
     }
 }
 
