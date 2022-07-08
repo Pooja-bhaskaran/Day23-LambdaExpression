@@ -4,21 +4,21 @@ import java.util.regex.Pattern;
 
 @FunctionalInterface
 interface UserRegistration {
-    void contact(String phoneNumber); // single abstract method
+    void validPassword(String Password); // single abstract method
 }
 
 public class LambdaExpression{
     public static void main(String[] args) {
         System.out.println("User Registration program using LambdaExpression");
-        UserRegistration function = (phoneNumber) ->{
-            boolean check = Pattern.matches("([1-9]{1,2}[ ])+([6-9]{1}[0-9]{9})", phoneNumber);
+        UserRegistration function = (Password) ->{
+            boolean check = Pattern.matches("(?=.*[0-9])\"+\"(?=.*[a-z])(?=.*[A-Z])\"+\"(?=.*[@#$%^&+=])\"+\"(?=\\\\S+$).{8,}", Password);
             if (check == true){
-                System.out.println("PhoneNumber is valid");
+                System.out.println("Password is valid");
             }
             else
-                System.out.println("PhoneNumber is not valid ,Please enter valid phonenumber");
+                System.out.println("Incorrect Password ,Please enter correct password");
         };
-        function.contact("91 9919819801");
+        function.validPassword("Pooja@456");
     }
 }
 
